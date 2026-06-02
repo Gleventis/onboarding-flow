@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile.debug
+    ports:
+      - "8000:8000"
+      - "5678:5678"
+    environment:
+      DATABASE_URL: postgresql://onboarding:onboarding@db:5432/onboarding
+    volumes:
+      - ../src:/app/src
+    depends_on:
+      db:
+        condition: service_healthy
