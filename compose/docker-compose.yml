@@ -16,6 +16,7 @@ services:
       retries: 10
 
   app:
+    image: onboarding-flow
     build:
       context: ..
       dockerfile: Dockerfile
