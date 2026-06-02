@@ -11,5 +11,6 @@ RUN uv sync --frozen --no-dev
 COPY src/ src/
 
 ENV PYTHONPATH=/app/src
+ENV PYTHONUNBUFFERED=1
 
-CMD ["uv", "run", "uvicorn", "server.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uv", "run", "--no-dev", "uvicorn", "server.main:app", "--host", "0.0.0.0", "--port", "8000"]

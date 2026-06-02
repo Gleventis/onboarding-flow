@@ -154,6 +154,7 @@ All endpoints except `/create` require a `Resume-Token` header.
 - All countries follow the same steps per account type (private template / business template)
 - All countries follow the same decisioning rules (single CoR chain)
 - No async
+- Step submition is follows a linear path
 - This is an API that only customers of Ikano will use. Employees will need a separate API to review and resolve manual_review applications
 
 ## Limitations
@@ -176,7 +177,7 @@ All endpoints except `/create` require a `Resume-Token` header.
 - **Country-specific decisioning**: Combine registry and CoR. Create a RULES registry dict, that maps (country, account_type) to a rule handler
 - **Country-specific steps**: Modify the registry pattern for the steps. Each country_account_type module exposes a STEPS dict, remove the builder from the registry module and update the FLOWS dict.
 - **Allow completed step resubmission**: Allow the user to submit new form to already existing step.
-
+- **Non-Linear flow**: Allow submission of all steps in any order, or hybrid approach; group steps in ordered phases. Phases are ordered(phase 1 before phase 2) but steps within phases are not ordered.
 
 ## Next Steps
 
